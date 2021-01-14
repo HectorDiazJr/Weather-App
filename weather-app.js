@@ -13,7 +13,7 @@ function dispayCityWeather() {
     console.log(city);
     var queryURL = "http://api.openweathermap.org/data/2.5/weather?q=" + city + "&APPID=697b47836ddecca53fd9822ab4c82a6c"
 
-    // var queryURL = "api.openweathermap.org/data/2.5/forecast?q=" + city + "&appid=697b47836ddecca53fd9822ab4c82a6c"
+    var queryURL1 = "http://api.openweathermap.org/data/2.5/forecast?q=" + city + "&units=imperial&appid=697b47836ddecca53fd9822ab4c82a6c"
     
     var currentDate = new Date();
     var month = currentDate.getMonth()+1;
@@ -29,28 +29,74 @@ function dispayCityWeather() {
         var todayDiv = $("<div class = todayWeather>");
         var cityName = response.name;
         var one = $("<h5>").text("Weather for " + cityName + ":");
-        console.log(one);
-        todayDiv.append(one);
-        var weather = (response.main.temp - 273.15) * 1.80 + 32;;
-        var two = $("<p>").text("The temp today is: " + weather.toFixed(2));
-        todayDiv.append(two);
-        var feels = (response.main.feels_like - 273.15) * 1.80 + 32;;
-        var three = $("<p>").text("But it feels like: " + feels.toFixed(2));
-        todayDiv.append(three);
-        var low = (response.main.temp_min - 273.15) * 1.80 + 32;;
-        var four = $("<p>").text("The low for today is: " + low.toFixed(2));
-        todayDiv.append(four);
-        var high = (response.main.temp_max - 273.15) * 1.80 + 32;;
-        var five = $("<p>").text("The high will be: " + high.toFixed(2));
-        todayDiv.append(five);
-        var des = response.weather[0].main;
+        // console.log(response);
+
         //adding icon
         var icon = response.weather[0].icon;
-        var showIcon = "http://openweathermap.org/img/wn/" + icon + "@2x.png";
-        var six = $("<p>").text("Current condition: " + des + " " + showIcon);
-        todayDiv.append(six);
+        var image = $("<img>").attr("src" , "http://openweathermap.org/img/wn/" + icon + ".png");
+        $("#date").append(image);
+
+        var weather = (response.main.temp - 273.15) * 1.80 + 32;;
+        var two = $("<p>").text("The temp today is: " + weather.toFixed(2));
+
+        var feels = (response.main.feels_like - 273.15) * 1.80 + 32;;
+        var three = $("<p>").text("But it feels like: " + feels.toFixed(2));
+
+        var low = (response.main.temp_min - 273.15) * 1.80 + 32;;
+        var four = $("<p>").text("The low for today is: " + low.toFixed(2));
+
+        var high = (response.main.temp_max - 273.15) * 1.80 + 32;;
+        var five = $("<p>").text("The high will be: " + high.toFixed(2));
+        
+        var des = response.weather[0].main; 
+        var six = $("<p>").text("Current condition: " + des);
+
+        var hum = response.main.humidity;
+        var seven = $("<p>").text("Humidity level is: " + hum);
+
+        var wind = response.wind.speed;
+        var eight = $("<p>").text("Wind speed: " + wind);
+
+        todayDiv.append(one, two, three, four, five, six, seven, eight);
         $("#today").prepend(todayDiv);
-      });
+        
+        // cant get to work
+        if (des === "Clouds" || "Cloudy") {
+            var imgG = $("<img>").attr("src" , "assets/cloudsgif.gif");
+            $("#imgGif").append(imgG);
+            } else if (des === "Drizzle" || "Rain") {
+                imgG = $("<img>").attr("src" , "assets/raingif.gif");
+                $("#imgGif").append(imgG);
+            } else if (des === "Thunderstorm") {
+                imgG = $("<img>").attr("src" , "assets/thundgif.gif");
+                $("#imgGif").append(imgG);
+            } else if (des === "Clear") {
+                imgG = $("<img>").attr("src" , "assets/cleargif.gif");
+                $("#imgGif").append(imgG);
+            } else if (des === "Sun" || "Sunny"){
+                imgG = $("<img>").attr("src" , "assets/sungif.gif");
+                $("#imgGif").append(imgG);
+            } else if (des === "Mist"){
+                imgG = $("<img>").attr("src" , "assets/mist.gif");
+                $("#imgGif").append(imgG);
+            } else if (des === "Snow"){
+                imgG = $("<img>").attr("src" , "assets/snowgif.gif");
+                $("#imgGif").append(imgG);
+            }
+            else (imgG.empty());
+        
+
+        // $.ajax({
+        //     url: queryURL1,
+        //     method: "GET"
+        //   }).then(function(response) {
+        //     console.log(response);
+
+            
+
+        // });
+        
+    });
 }
 
 
@@ -69,7 +115,7 @@ $(".list-cities").empty();
         // adding the name of the city by user input
         a.text(cities[i]);
         var ul = $("<ul>").html(a);
-        $(".list-cities").append(ul);
+        $(".list-cities").prepend(ul);
     }
 };
 

@@ -17,17 +17,19 @@
   <link rel="stylesheet" href="style.css" />
 </head>
 
+<header class="jumbotron">
+  <h1 class="display-3">Weather App</h1>
+  <p class="lead">Check the weather for your selected cities</p>
+</header>
+
 <body>
-  <header class="jumbotron">
-    <h1 class="display-3">Weather App</h1>
-    <p class="lead">Check the weather for your selected cities</p>
-  </header>
+  
   <div class="container-fluid">
     <div class="row">
       <div class="col-lg-4">
         <!-- bootsrap card -->
         <div class="card" style="width: 18rem;">
-          <img src="assets/Weather-icon.png" class="card-img-top" alt="...">
+          <img src="assets/Weather-icon.png" class="card-img-top" alt="Weather Tiles">
           <div class="card-body">
             <h5 class="card-title">Check the Weather</h5>
             <div class="input-group input-group-sm mb-3">
@@ -41,7 +43,7 @@
         <ul class="list-cities"></ul>
       </div>
 
-      <div class="col-lg-8">
+      <div class="col-lg-3">
         
         <h3>Today's Forcast</h3>
         <h3 id = "date"></h3>
@@ -51,7 +53,12 @@
         <!-- search results to be displayed -->
         <div id="forcast" class="mt-3"></div>
       </div>
+
+      <div class = "col-lg-3" id = "imgGif"></div>
+
     </div>
+
+    
 
 
 

@@ -5,3 +5,7 @@
     border-radius: 0;
     border-bottom: 10px solid blue;
   }
+
+  .container-fluid {
+    background-color: lightskyblue;
+  }
