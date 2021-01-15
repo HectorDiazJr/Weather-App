@@ -9,3 +9,8 @@
   .container-fluid {
     background-color: lightskyblue;
   }
+
+  #forecast {
+    font-size: smaller;
+    display: inline;
+  }

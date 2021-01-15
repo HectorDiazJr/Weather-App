@@ -110,16 +110,16 @@ function dispayCityWeather() {
             console.log(response);
 
             // //day 1
-            var mo1 = response.list[4].dt_txt.split("-")[1];
-            var dd1 = response.list[4].dt_txt.charAt(8);
-            var dd11 = response.list[4].dt_txt.charAt(9); 
+            var mo1 = response.list[3].dt_txt.split("-")[1];
+            var dd1 = response.list[3].dt_txt.charAt(8);
+            var dd11 = response.list[3].dt_txt.charAt(9); 
             var dd111 =(dd1+dd11);
-            var yr1 = response.list[4].dt_txt.split("-")[0];
+            var yr1 = response.list[3].dt_txt.split("-")[0];
             var date1 = (mo1 + " / " + dd111 + " / " + yr1);
-            var icon1 = response.list[4].weather[0].icon;
+            var icon1 = response.list[3].weather[0].icon;
             var image = $("<img>").attr("src" , "https://openweathermap.org/img/wn/" + icon + ".png");
-            var temp1 = response.list[4].main.temp;
-            var hum1 = response.list[4].main.humidity;
+            var temp1 = response.list[3].main.temp;
+            var hum1 = response.list[3].main.humidity;
             // console.log(date1);
 
             var day1F = $("<h7>").text(date1);
@@ -136,6 +136,7 @@ function dispayCityWeather() {
             var dd222 =(dd2+dd22);
             var yr2 = response.list[12].dt_txt.split("-")[0];
             var date2 = (mo2 + " / " + dd222 + " / " + yr2);
+            // date2.css("color","red");
             var icon2 = response.list[12].weather[0].icon;
             var image2 = $("<img>").attr("src" , "https://openweathermap.org/img/wn/" + icon + ".png");
             var temp2 = response.list[12].main.temp;
@@ -210,7 +211,7 @@ function dispayCityWeather() {
             fiveDiv5.append(day5F, day5Icon, day5A);
 
 
-            $("#forcast").prepend(fiveDiv1, fiveDiv2, fiveDiv3, fiveDiv4, fiveDiv5);        
+            $("#forecast").prepend(fiveDiv1, fiveDiv2, fiveDiv3, fiveDiv4, fiveDiv5);        
 
         });
         
