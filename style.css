@@ -10,6 +10,20 @@
     background-color: lightskyblue;
   }
 
+  .card-title {
+    text-align: center;
+  }
+
+  .card {
+    border-color: mediumaquamarine;
+    border-width: medium;
+  }
+
+  #today {
+    border-color: mediumaquamarine;
+    border-width: medium;
+  }
+
   #forecast {
     font-size: smaller;
     display: inline;
