@@ -13,9 +13,9 @@ function dispayCityWeather() {
     // need explanation on this
     var city = $(this).attr("data-name");
     // console.log(city);
-    var queryURL = "http://api.openweathermap.org/data/2.5/weather?q=" + city + "&APPID=697b47836ddecca53fd9822ab4c82a6c"
+    var queryURL = "https://api.openweathermap.org/data/2.5/weather?q=" + city + "&APPID=697b47836ddecca53fd9822ab4c82a6c"
 
-    var queryURL1 = "http://api.openweathermap.org/data/2.5/forecast?q=" + city + "&units=imperial&appid=697b47836ddecca53fd9822ab4c82a6c"
+    var queryURL1 = "https://api.openweathermap.org/data/2.5/forecast?q=" + city + "&units=imperial&appid=697b47836ddecca53fd9822ab4c82a6c"
     
     var currentDate = new Date();
     var month = currentDate.getMonth()+1;
@@ -35,7 +35,7 @@ function dispayCityWeather() {
 
         //adding icon
         var icon = response.weather[0].icon;
-        var image = $("<img>").attr("src" , "http://openweathermap.org/img/wn/" + icon + ".png");
+        var image = $("<img>").attr("src" , "https://openweathermap.org/img/wn/" + icon + ".png");
         // $("#date").append(image);
 
         var weather = (response.main.temp - 273.15) * 1.80 + 32;;
@@ -66,7 +66,7 @@ function dispayCityWeather() {
         var lon = response.coord.lon;
         // console.log(lat, lon);
         
-        var queryURLuv = "http://api.openweathermap.org/data/2.5/uvi?lat=" + lat + "&lon=" + lon + "&APPID=697b47836ddecca53fd9822ab4c82a6c";
+        var queryURLuv = "https://api.openweathermap.org/data/2.5/uvi?lat=" + lat + "&lon=" + lon + "&APPID=697b47836ddecca53fd9822ab4c82a6c";
         $.ajax({
             url: queryURLuv,
             method: "GET"
@@ -110,16 +110,16 @@ function dispayCityWeather() {
             console.log(response);
 
             // //day 1
-            var mo1 = response.list[0].dt_txt.split("-")[1];
-            var dd1 = response.list[0].dt_txt.charAt(8);
-            var dd11 = response.list[0].dt_txt.charAt(9); 
+            var mo1 = response.list[4].dt_txt.split("-")[1];
+            var dd1 = response.list[4].dt_txt.charAt(8);
+            var dd11 = response.list[4].dt_txt.charAt(9); 
             var dd111 =(dd1+dd11);
-            var yr1 = response.list[0].dt_txt.split("-")[0];
+            var yr1 = response.list[4].dt_txt.split("-")[0];
             var date1 = (mo1 + " / " + dd111 + " / " + yr1);
-            var icon1 = response.list[0].weather[0].icon;
-            var image = $("<img>").attr("src" , "http://openweathermap.org/img/wn/" + icon + ".png");
-            var temp1 = response.list[0].main.temp;
-            var hum1 = response.list[0].main.humidity;
+            var icon1 = response.list[4].weather[0].icon;
+            var image = $("<img>").attr("src" , "https://openweathermap.org/img/wn/" + icon + ".png");
+            var temp1 = response.list[4].main.temp;
+            var hum1 = response.list[4].main.humidity;
             // console.log(date1);
 
             var day1F = $("<h7>").text(date1);
@@ -130,16 +130,16 @@ function dispayCityWeather() {
             fiveDiv1.append(day1F, dayIcon, day1A);
 
             // //day 2
-            var mo2 = response.list[10].dt_txt.split("-")[1];
-            var dd2 = response.list[10].dt_txt.charAt(8);
-            var dd22 = response.list[10].dt_txt.charAt(9); 
+            var mo2 = response.list[12].dt_txt.split("-")[1];
+            var dd2 = response.list[12].dt_txt.charAt(8);
+            var dd22 = response.list[12].dt_txt.charAt(9); 
             var dd222 =(dd2+dd22);
-            var yr2 = response.list[10].dt_txt.split("-")[0];
+            var yr2 = response.list[12].dt_txt.split("-")[0];
             var date2 = (mo2 + " / " + dd222 + " / " + yr2);
-            var icon2 = response.list[10].weather[0].icon;
-            var image2 = $("<img>").attr("src" , "http://openweathermap.org/img/wn/" + icon + ".png");
-            var temp2 = response.list[10].main.temp;
-            var hum2 = response.list[10].main.humidity;
+            var icon2 = response.list[12].weather[0].icon;
+            var image2 = $("<img>").attr("src" , "https://openweathermap.org/img/wn/" + icon + ".png");
+            var temp2 = response.list[12].main.temp;
+            var hum2 = response.list[12].main.humidity;
             // console.log(date1);
 
             var day2F = $("<h7>").text(date2);
@@ -157,7 +157,7 @@ function dispayCityWeather() {
             var yr3 = response.list[20].dt_txt.split("-")[0];
             var date3 = (mo3 + " / " + dd333 + " / " + yr3);
             var icon3 = response.list[20].weather[0].icon;
-            var image3 = $("<img>").attr("src" , "http://openweathermap.org/img/wn/" + icon + ".png");
+            var image3 = $("<img>").attr("src" , "https://openweathermap.org/img/wn/" + icon + ".png");
             var temp3 = response.list[20].main.temp;
             var hum3 = response.list[20].main.humidity;
             // console.log(date1);
@@ -170,16 +170,16 @@ function dispayCityWeather() {
             fiveDiv3.append(day3F, day3Icon, day3A);
 
             //day 4
-            var mo4 = response.list[30].dt_txt.split("-")[1];
-            var dd4 = response.list[30].dt_txt.charAt(8);
-            var dd44 = response.list[30].dt_txt.charAt(9); 
+            var mo4 = response.list[28].dt_txt.split("-")[1];
+            var dd4 = response.list[28].dt_txt.charAt(8);
+            var dd44 = response.list[28].dt_txt.charAt(9); 
             var dd444 =(dd4+dd44);
-            var yr4 = response.list[30].dt_txt.split("-")[0];
+            var yr4 = response.list[28].dt_txt.split("-")[0];
             var date4 = (mo4 + " / " + dd444 + " / " + yr4);
-            var icon4 = response.list[30].weather[0].icon;
-            var image4 = $("<img>").attr("src" , "http://openweathermap.org/img/wn/" + icon + ".png");
-            var temp4 = response.list[30].main.temp;
-            var hum4 = response.list[30].main.humidity;
+            var icon4 = response.list[28].weather[0].icon;
+            var image4 = $("<img>").attr("src" , "https://openweathermap.org/img/wn/" + icon + ".png");
+            var temp4 = response.list[28].main.temp;
+            var hum4 = response.list[28].main.humidity;
             // console.log(date1);
 
             var day4F = $("<h7>").text(date4);
@@ -190,16 +190,16 @@ function dispayCityWeather() {
             fiveDiv4.append(day4F, day4Icon, day4A);
 
             //day 5
-            var mo5 = response.list[31].dt_txt.split("-")[1];
-            var dd5 = response.list[31].dt_txt.charAt(8);
-            var dd55 = response.list[31].dt_txt.charAt(9); 
+            var mo5 = response.list[36].dt_txt.split("-")[1];
+            var dd5 = response.list[36].dt_txt.charAt(8);
+            var dd55 = response.list[36].dt_txt.charAt(9); 
             var dd555 =(dd5+dd55);
-            var yr5 = response.list[31].dt_txt.split("-")[0];
+            var yr5 = response.list[36].dt_txt.split("-")[0];
             var date5 = (mo5 + " / " + dd555 + " / " + yr5);
-            var icon5 = response.list[31].weather[0].icon;
-            var image5 = $("<img>").attr("src" , "http://openweathermap.org/img/wn/" + icon + ".png");
-            var temp5 = response.list[31].main.temp;
-            var hum5 = response.list[31].main.humidity;
+            var icon5 = response.list[36].weather[0].icon;
+            var image5 = $("<img>").attr("src" , "https://openweathermap.org/img/wn/" + icon + ".png");
+            var temp5 = response.list[36].main.temp;
+            var hum5 = response.list[36].main.humidity;
             // console.log(date1);
 
             var day5F = $("<h7>").text(date5);
