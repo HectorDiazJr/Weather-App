@@ -12,6 +12,9 @@ $(document).ready(function () {
 
         // need explanation on this
         var city = $(this).attr("data-name");
+        $("#today").empty();
+        $("#forecast").empty();
+        // $("#imgGif").empty();
         // console.log(city);
         var queryURL = "https://api.openweathermap.org/data/2.5/weather?q=" + city + "&APPID=697b47836ddecca53fd9822ab4c82a6c"
 
@@ -74,9 +77,25 @@ $(document).ready(function () {
                 // console.log(response);
 
                 var uv = response.value
+                console.log(uv);
+                var uvEl = $("<p>").text("UV Index: " + uv);
+                
+                todayDiv.append(uvEl);
 
-                todayDiv.append("UV Index: " + uv);
                 $("#today").prepend(todayDiv);
+
+                if (uv <= 2.99) {
+                    $(uvEl).addClass("low")
+                }
+                    if (uv >= 3.00 && uv <= 5.99) {
+                        $(uvEl).addClass("moderate") 
+                    }
+                    if (uv >= 6.00 && uv <= 7.99) {
+                        $(uvEl).addClass("high")
+                    }
+                    if (uv >=8.00) {
+                        $(uvEl).addClass("veryHige")
+                    }                
             });
 
             // if (des === "Clouds" || "Cloudy") {
@@ -100,8 +119,8 @@ $(document).ready(function () {
             //     } else if (des === "Snow"){
             //         imgG = $("<img>").attr("src" , "assets/snowgif.gif");
             //         $("#imgGif").append(imgG);
-            //     }
-            //     else (imgG.empty());
+            //     };
+                // else (imgG.empty());
 
             $.ajax({
                 url: queryURL1,
@@ -141,35 +160,9 @@ $(document).ready(function () {
                         console.log(index)
 
                         $("#forecast").append(fiveDiv1);
-
-
                     }
-
-
                 }
-
-                // //day 1
-
-
-                // console.log(date1);
-
-
-
-                
-
-               
-                
-
-                
-
-                
-                
-
-
-                
-
             });
-
         });
     }
 
@@ -183,13 +176,14 @@ $(document).ready(function () {
             // add buttons to the web page
             var a = $("<button>");
             //adding class to allow to be selected
-            a.addClass("city-weather");
+            a.addClass("city-weather").addClass("cityButton");
             //adding a data-atrribute
             a.attr("data-name", cities[i]);
             // adding the name of the city by user input
             a.text(cities[i]);
             var ul = $("<ul>").html(a);
             $(".list-cities").prepend(ul);
+            
         }
     };
 

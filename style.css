@@ -1,9 +1,9 @@
 .jumbotron {
     text-align: center;
-    background-color: transparent;
-    color: black;
+    color: white;
     border-radius: 0;
     border-bottom: 10px solid blue;
+    background-image: url("assets/raingif.gif");
   }
 
   .container-fluid {
@@ -19,12 +19,63 @@
     border-width: medium;
   }
 
+  .cityButton{
+    width: 150px;
+    height: 40px;
+    margin-bottom: 5px;
+  }
+
   #today {
     border-color: mediumaquamarine;
     border-width: medium;
   }
 
+  .low {
+    background-color: green;
+    color: white;
+    width:auto;
+    width: 125px;
+    padding: 5px;
+  }
+  
+  .moderate {
+    background-color:yellow;
+    color: black;
+    width:auto;
+    width: 125px;
+    padding: 5px;
+  }
+  
+  .high {
+    background-color:orange;
+    color:black;
+    width:auto;
+    width: 125px;
+    padding: 5px;
+  }
+  
+  .veryHige {
+    background-color:red;
+    color: white;
+    width:auto;
+    width: 125px;
+    padding: 5px;
+  }
+
   #forecast {
     font-size: smaller;
     display: inline;
+  }
+
+  .fiveWeather {
+    margin-bottom: 50px;
+    text-align: center;
+    padding: 5px;
+    background-color: navy;
+    color: whitesmoke;
+    border-width: 0vmax;
+    max-width: 125px;
+    float: left;
+    border: 2px solid mediumaquamarine;
+    border-radius: 10px;
   }
