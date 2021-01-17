@@ -24,11 +24,11 @@ I used past homework and activities as resources to help with code and to facili
 Other resources used were w3school, mozilla, and youtube
 
 
-Below is a screen shot of the scheduler online
+Below is a screen shot of the weather app online
 ![alt = screen shot of scheduler](assets/weather-app.png)
 
 Below is a link to the repository 
 https://github.com/HectorDiazJr/Weather-App
 
-Below is al link to the scheduler  
+Below is al link to the weather app  
 https://hectordiazjr.github.io/Weather-App/
