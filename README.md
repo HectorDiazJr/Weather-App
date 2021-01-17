@@ -25,7 +25,7 @@ Other resources used were w3school, mozilla, and youtube
 
 
 Below is a screen shot of the scheduler online
-![alt = screen shot of scheduler](assets/weather app.png)
+![alt = screen shot of scheduler](assets/weather-app.png)
 
 Below is a link to the repository 
 https://github.com/HectorDiazJr/Weather-App
