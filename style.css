@@ -6,6 +6,54 @@
     background-image: url("assets/raingif.gif");
   }
 
+  .cleargif {
+    text-align: center;
+    color: white;
+    border-radius: 0;
+    border-bottom: 10px solid blue;
+    background-image: url("assets/cleargif.gif");
+  }
+
+  .cloudsgif {
+    text-align: center;
+    color: white;
+    border-radius: 0;
+    border-bottom: 10px solid blue;
+    background-image: url("assets/cloudsgif.gif");
+  }
+
+  .mistgif {
+    text-align: center;
+    color: white;
+    border-radius: 0;
+    border-bottom: 10px solid blue;
+    background-image: url("assets/mistgif.gif");
+  }
+
+  .snowgif {
+    text-align: center;
+    color: white;
+    border-radius: 0;
+    border-bottom: 10px solid blue;
+    background-image: url("assets/snowgif.gif");
+  }
+
+  .sunnygif {
+    text-align: center;
+    color: white;
+    border-radius: 0;
+    border-bottom: 10px solid blue;
+    background-image: url("assets/sunnygif.gif");
+  }
+
+  .thundergif {
+    text-align: center;
+    color: white;
+    border-radius: 0;
+    border-bottom: 10px solid blue;
+    background-image: url("assets/thundgif.gif");
+  }
+
   .container-fluid {
     background-color: lightskyblue;
   }

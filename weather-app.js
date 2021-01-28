@@ -55,6 +55,7 @@ $(document).ready(function () {
 
             var des = response.weather[0].main;
             var six = $("<p>").text("Current condition: " + des);
+            console.log(des);
 
             var hum = response.main.humidity;
             var seven = $("<p>").text("Humidity level is: " + hum);
@@ -77,7 +78,7 @@ $(document).ready(function () {
                 // console.log(response);
 
                 var uv = response.value
-                console.log(uv);
+                // console.log(uv);
                 var uvEl = $("<p>").text("UV Index: " + uv);
                 
                 todayDiv.append(uvEl);
@@ -98,35 +99,42 @@ $(document).ready(function () {
                     }                
             });
 
-            // if (des === "Clouds" || "Cloudy") {
-            //     var imgG = $("<img>").attr("src" , "assets/cloudsgif.gif");
-            //     $("#imgGif").append(imgG);
-            //     } else if (des === "Drizzle" || "Rain") {
-            //         imgG = $("<img>").attr("src" , "assets/raingif.gif");
-            //         $("#imgGif").append(imgG);
-            //     } else if (des === "Thunderstorm") {
-            //         imgG = $("<img>").attr("src" , "assets/thundgif.gif");
-            //         $("#imgGif").append(imgG);
-            //     } else if (des === "Clear") {
-            //         imgG = $("<img>").attr("src" , "assets/cleargif.gif");
-            //         $("#imgGif").append(imgG);
-            //     } else if (des === "Sun" || "Sunny"){
-            //         imgG = $("<img>").attr("src" , "assets/sungif.gif");
-            //         $("#imgGif").append(imgG);
-            //     } else if (des === "Mist"){
-            //         imgG = $("<img>").attr("src" , "assets/mist.gif");
-            //         $("#imgGif").append(imgG);
-            //     } else if (des === "Snow"){
-            //         imgG = $("<img>").attr("src" , "assets/snowgif.gif");
-            //         $("#imgGif").append(imgG);
-            //     };
-                // else (imgG.empty());
+            console.log(des);
+
+            const gif = ["cleargif", "cloudsgif", "mistgifgif", "raingif", "snowgif", "sunnygif", "thundgif"]
+
+            for ( let i = 0; i < gif.length; i++) {
+                $("#weatherGif").removeClass(gif[i]);
+            }
+
+            if (des === "Clouds") {
+                $("#weatherGif").addClass("cloudsgif")
+
+                } else if (des ===  "Rain") {
+                    $("#weatherGif").addClass("raingif")
+
+                } else if (des === "Thunderstorm") {
+                    $("#weatherGif").addClass("thundergif")
+
+                } else if (des === "Clear") {
+                    $("#weatherGif").addClass("cleargif")
+
+                } else if (des === "Sun" || des === "Sunny") {
+                    $("#weatherGif").addClass("sunnygif")
+
+                } else if (des === "Mist") {
+                    $("#weatherGif").addClass("mistgif")
+
+                } else if (des === "Snow") {
+                    $("#weatherGif").addClass("snowgif")
+                };
+               
 
             $.ajax({
                 url: queryURL1,
                 method: "GET"
             }).then(function (response) {
-                console.log(response);
+                // console.log(response);
 
                 var identifyDate = new Date();
 
@@ -136,12 +144,12 @@ $(document).ready(function () {
                 for (let index = 0; index < response.list.length; index++) {
                     // console.log(response.list[index].dt)
                     var forecastDate = new Date(response.list[index].dt * 1000)
-                    console.log(identifyDate + "  " + forecastDate);
+                    // console.log(identifyDate + "  " + forecastDate);
                     //take todays date and one, for tomorrow, add two for the next, etc
                     //for loop to go through array and find the correct dates
                     //add the correct array to the html
                     if (forecastDate.getDate() === identifyDate.getDate()) {
-                        console.log("thank God");
+                        // console.log("thank God");
 
                         var icon1 = response.list[index].weather[0].icon;
                         var image = $("<img>").attr("src", "https://openweathermap.org/img/wn/" + icon + ".png");
@@ -156,8 +164,8 @@ $(document).ready(function () {
                         fiveDiv1.append(day1F, dayIcon, day1A);
 
                         identifyDate.setDate(identifyDate.getDate() + 1);
-                        console.log(" next day");
-                        console.log(index)
+                        // console.log(" next day");
+                        // console.log(index)
 
                         $("#forecast").append(fiveDiv1);
                     }
